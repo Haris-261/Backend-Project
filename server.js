@@ -3,11 +3,14 @@ import dotenv from 'dotenv'
 import connectDB from './src/utils/connectDB.js'
 import CookieParser from 'cookie-parser'
 import userRouter from './src/routes/user.route.js'
+import path from 'path';
 
-connectDB()
 dotenv.config()
-
+connectDB()
 const app = express()
+
+
+app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 app.use(express.json())
 app.use(CookieParser())
 app.use('/api/v1/users', userRouter);

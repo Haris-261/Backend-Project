@@ -7,6 +7,17 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    username : {
+         type: String,
+        required: true,
+        unique: true
+    },
+    avatar:{
+        type: String,
+    },
+    avatar_public_id:{
+        type: String,
+    },
     email: {
         type: String,
         required: true,
@@ -16,6 +27,16 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    gender:{
+         type: String,
+         enum: ["male" , "female" , "other"],
+        required: true,
+    },
+    dob:{
+         type: Date,
+        required: true,
+    },
+
 },
 {
     timestamps : true,
