@@ -13,7 +13,7 @@ const app = express()
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 app.use(express.json())
 app.use(CookieParser())
-app.use('/users', userRouter);
+app.use('/api/users', userRouter);
 const port = process.env.PORT || 5000
 
 app.listen(port, () => {
