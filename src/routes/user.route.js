@@ -8,7 +8,7 @@ const userRouter = router()
 
 userRouter.post('/register-user', registerUser)
 userRouter.post('/login-user', login)
-userRouter.get("/ping", (req, res) => {
+userRouter.post("/ping", (req, res) => {
     res.json({msg: "Server is working"})
 })
 userRouter.post('/logout-user', isAuthenticated , logout)
