@@ -53,13 +53,13 @@ const registerUser = async (req, res) => {
         if (!user) {
             return res.status(400).json({
                 success: false,
-                message: "User do not created"
+                message: "User do not registered"
             });
         }
 
         return res.status(201).json({
             success: true,
-            message: "User Created Successfully",
+            message: "User Registered Successfully",
             user
         });
 
@@ -81,7 +81,7 @@ const login = async(req , res) =>{
         const user = await User.findOne({email})
         if(!user){
             return res.status(400).json({
-                message: "User not fount"
+                message: "User not found"
             })
         }
         const validpassword = await bcrypt.compare( password , user.password )
